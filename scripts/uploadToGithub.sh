@@ -6,8 +6,8 @@ if ! [ -d "/opt/weather/.git" ]; then
 
     git config user.name "Hannah Sofie"
     git config user.email "Hannah-Sofie@live.no"
-    git config user.password "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"
-
+    git config user.password "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"
+    # H@nnah2022
     git config credential.helper store
 
     git remote add origin "https://github.com/Hannah-Sofie/Weather.git"

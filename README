@@ -1,3 +1,21 @@
-This project has 3 scripts:
+This project has 8 scripts:
 
-a) script01.sh, do a scraping to metereoligical data
+a) script01.sh, does a scraping to metereoligical data, creates a folder for each time scrapped
+and create a text plain file named with name of the city who data just obtained on scrapped-weather folder
+
+b) script02.sh, read the data from scrapped-weather folder and creates a html by each text plain 
+read, the html files are stored on a folder called with time when data was scrapped inside the cities folder
+
+c) script03.sh, read the data from html files and creates a main.html file, it's a index to 
+navigate to each html file created by previous script
+
+d) script04.sh, http response for a specific request without a webserver
+
+e) getData.cgi, call script03.sh and show the main.html file on the fly using nginx cgi configuration
+
+f) uploadToGithub.sh, commit and push the changes of in the whole project to github in unnatendent way
+
+g) notification.sh, send a notification to the topic idg1100-562963 about the forecast got of the metereoligical data scrapped of the some cities
+
+h) deploy.sh, install all files and configure nginx and systemd timer to emulate cronjobs
+

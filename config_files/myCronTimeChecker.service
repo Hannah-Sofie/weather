@@ -1,0 +1,17 @@
+
+# guide: https://opensource.com/article/20/7/systemd-timers
+# Copy into /etc/systemd/system
+
+[Unit]
+Description=Fetch weather forecasts from the Norwegian Meteorological Institute
+Wants=myCronTimeChecker.timer
+
+[Service]
+Type=oneshot
+
+ExecStart=bash /opt/weather/script01.sh
+
+
+
+[Install]
+WantedBy=multi-user.target

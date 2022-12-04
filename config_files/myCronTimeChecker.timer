@@ -1,0 +1,18 @@
+
+# By Rodney Salcedo
+# Licensed under GPL V2
+# guide: https://opensource.com/article/20/7/systemd-timers
+# Copy into /etc/systemd/system
+
+[Unit]
+Description=Fetch weather forecasts from the Norwegian Meteorological Institute every 6 hours
+Requires=myCronTimeChecker.service
+
+[Timer]
+Unit=myCronTimeChecker.service
+OnCalendar=*-*-* */6:00:00
+           
+
+
+[Install]
+WantedBy=timers.target
