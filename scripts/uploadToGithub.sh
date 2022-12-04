@@ -4,9 +4,9 @@ if ! [ -d "/opt/weather/.git" ]; then
 
     git init
 
-    git config user.name "Hannah Sofie"
-    git config user.email "Hannah-Sofie@live.no"
-    git config user.password "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"
+    git config --global user.name "Hannah Sofie"
+    git config --global user.email "Hannah-Sofie@live.no"
+    git config --global user.password "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"
     # H@nnah2022
     git config credential.helper store
 
