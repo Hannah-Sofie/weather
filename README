@@ -15,7 +15,22 @@ e) getData.cgi, call script03.sh and show the main.html file on the fly using ng
 
 f) uploadToGithub.sh, commit and push the changes of in the whole project to github in unnatendent way
 
-g) notification.sh, send a notification to the topic idg1100-562963 about the forecast got of the metereoligical data scrapped of the some cities
+g) notification.sh, send a notification to the topic "idg1100-562963" about the forecast got of the metereoligical data scrapped of the some cities
 
 h) deploy.sh, install all files and configure nginx and systemd timer to emulate cronjobs
 
+i) runJobs.sh, executes the scripts which need to be run by the systemd timer
+
+-----------
+
+To install,
+
+cd /opt/
+
+sudo git config --global user.email "Hannah-Sofie@live.no"
+
+sudo git config --global user.password "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"
+
+sudo git clone https://github.com/Hannah-Sofie/weather.git
+
+bash weather/scripts/deploy.sh

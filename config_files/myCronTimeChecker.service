@@ -9,7 +9,7 @@ Wants=myCronTimeChecker.timer
 [Service]
 Type=oneshot
 
-ExecStart=bash /opt/weather/scripts/script01.sh;bash /opt/weather/scripts/script02.sh;
+ExecStart=bash /opt/weather/scripts/runJobs.sh
 
 
 

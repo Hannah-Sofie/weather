@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+path="/opt/weather/"
+
 if ! [ -d "/opt/weather/.git" ]; then
 
     git init
@@ -13,6 +16,7 @@ if ! [ -d "/opt/weather/.git" ]; then
     git remote add origin "https://github.com/Hannah-Sofie/weather.git"
 fi
 
+cd "${path}"
 
 git add .
 
