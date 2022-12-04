@@ -12,7 +12,7 @@ myHour=$(date +%H)
 folderName=$(date +%Y-%m-%d-%H%M)
 # folderName="2022-11-29-1411"
 
-lastModification=$(date --reference=../scripts/data-collected.txt -R -u | sed s/\\s+[0-9+-]*$//g)
+# lastModification=$(date --reference=${path}../scripts/data-collected.txt -R -u | sed s/\\s+[0-9+-]*$//g)
 
 updatedTime=$(date +"%Y-%m-%d %H:%M")
 

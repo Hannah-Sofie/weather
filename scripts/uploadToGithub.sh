@@ -5,21 +5,21 @@ path="/opt/weather/"
 
 if ! [ -d "/opt/weather/.git" ]; then
 
-    git init
+    sudo git init
 
     # git config --global user.name "Hannah Sofie"
     # git config --global user.email "Hannah-Sofie@live.no"
     
     # H@nnah2022
-    git config credential.helper store
+    sudo git config credential.helper store
 
-    git remote add origin "https://github.com/Hannah-Sofie/weather.git"
+    sudo git remote add origin "https://github.com/Hannah-Sofie/weather.git"
 fi
 
 cd "${path}"
 
-git add .
+sudo git add .
 
-git commit -m "Changes at $(date)"
+sudo git commit -m "Changes at $(date)"
 
-git push origin master
+sudo git push origin master

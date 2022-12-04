@@ -29,7 +29,7 @@ cd /opt/
 
 sudo git config --global user.email "Hannah-Sofie@live.no"
 
-sudo git config --global user.password "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"
+sudo git config --global user.password "<THIS MUST NOT SHOW HERE>"
 
 sudo git clone https://github.com/Hannah-Sofie/weather.git
 
