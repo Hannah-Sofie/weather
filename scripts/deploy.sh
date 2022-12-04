@@ -27,5 +27,5 @@ sudo nginx -s reload
 sudo cp /opt/weather/config_files/myCronTimeChecker.timer /etc/systemd/system
 sudo cp /opt/weather/config_files/myCronTimeChecker.service /etc/systemd/system
 
-systemctl start myCronTimeChecker.service
-systemctl enable myCronTimeChecker.timer
+sudo systemctl start myCronTimeChecker.service
+sudo systemctl enable myCronTimeChecker.timer
