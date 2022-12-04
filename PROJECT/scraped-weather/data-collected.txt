@@ -1,0 +1,5 @@
+Gjøvik;2.2, 2.1, 2.1;lightrain lightrain cloudy;
+Bergen;8.4, 8.2, 7.9;cloudy cloudy cloudy;
+Oslo;4.6, 4.4, 4.4;cloudy lightrain lightrain;
+Tromsø;0.0, 0.1, 0.3;partlycloudy_polartwilight partlycloudy_polartwilight partlycloudy_polartwilight;
+Trondheim;5.8, 6.1, 6.5;cloudy cloudy cloudy;
