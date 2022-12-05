@@ -3,6 +3,9 @@
 
 path="/opt/weather/PROJECT/"
 
-bash ${path}../script03.sh
+sudo bash ${path}../scripts/script03.sh
+if [ "$?" -ne "0" ]; then
+   echo "script03 didn't run as expected"
+fi
 
 cat "${path}main.html"

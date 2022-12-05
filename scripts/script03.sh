@@ -11,8 +11,14 @@ path="/opt/weather/PROJECT/"
 
 CITIESFOLDER="cities"
 
+if [ -d "${path}$CITIESFOLDER/$folderName/" ]; then
+    cd ${path}$CITIESFOLDER/$folderName/
 
-cd ${path}$CITIESFOLDER/$folderName/
+else
+    lastPathFound=$(ls -1 ${path}$CITIESFOLDER/ | tail -n1)
+    cd "${path}$CITIESFOLDER/$lastPathFound"
+    folderName=$lastPathFound
+fi
 
 regex1="([0-9.]+)"
 regex2="(\w+)"
@@ -37,13 +43,15 @@ for i in *; do
 
 
     
-myli="${myli}<li><a href=\"${CITIESFOLDER}/${folderName}/${city}\">${city}</a>: ($forecast) $tempList</li>""\n"
+myli="${myli}<li><a href=\"../PROJECT/${CITIESFOLDER}/${folderName}/${city}\">${city}</a>: ($forecast) $tempList</li>""\n"
     
 done
 
 
 
-echo -e "<!DOCTYPE html>
+echo -e "
+
+<!DOCTYPE html>
 <html dir=\"ltr\" lang=\"en-US\">
     <head>
         <meta charset=\"UTF-8\" />

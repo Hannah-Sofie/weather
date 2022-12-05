@@ -21,6 +21,10 @@ sudo cp /opt/weather/config_files/weather.conf /etc/nginx/sites-available/weathe
 
 sudo ln -s  /etc/nginx/sites-available/weather.conf /etc/nginx/sites-enabled/
 
+sudo chmod +x /opt/weather/cgi-bin/getData.cgi
+
+sudo chmod +x /opt/weather/scripts/script03.sh
+
 sudo nginx -t
 sudo nginx -s reload
 
