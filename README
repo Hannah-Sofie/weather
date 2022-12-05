@@ -1,4 +1,4 @@
-This project has 8 scripts:
+This project has 9 scripts:
 
 a) script01.sh, does a scraping to metereoligical data, creates a folder for each time scrapped
 and create a text plain file named with name of the city who data just obtained on scrapped-weather folder
@@ -33,4 +33,16 @@ sudo git config --global user.password "<THIS MUST NOT SHOW HERE>"
 
 sudo git clone https://github.com/Hannah-Sofie/weather.git
 
-bash weather/scripts/deploy.sh
+sudo bash weather/scripts/deploy.sh
+
+------------
+
+Password is the Personal github token, the file /etc/nginx/sites-available/weather.conf  needs to be edited to write (lihne 3) the IP on the LAN example:
+listen   10.246.211.113:80;
+
+or
+
+listen   192.168.0.18:80;
+
+
+

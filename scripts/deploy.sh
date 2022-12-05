@@ -1,8 +1,8 @@
 #!/bin/bash
 ##### PREVIOUS STEPS
-cd /opt/
+# cd /opt/
 
-sudo git clone https://github.com/Hannah-Sofie/weather.git
+# sudo git clone https://github.com/Hannah-Sofie/weather.git
 ##### 
 
 sudo apt update
@@ -20,6 +20,10 @@ sudo cp /opt/weather/config_files/weather.conf /etc/nginx/sites-available/weathe
 
 
 sudo ln -s  /etc/nginx/sites-available/weather.conf /etc/nginx/sites-enabled/
+
+sudo chown root:www-data -R /opt/weather/
+
+sudo chmod 775 -R /opt/weather/PROJECT/
 
 sudo chmod +x /opt/weather/cgi-bin/getData.cgi
 
