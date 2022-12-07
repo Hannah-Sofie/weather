@@ -1,3 +1,13 @@
+Project description:
+
+This project is developed of a series of scripts and configuration files that fetches the weather
+forecast from the Norwegian Meteorological Institute and republish them on a Web server running
+on a Raspberry Pi.
+
+More about the individual scripts and optional features added, see below.
+
+-----------
+
 This project has 9 scripts:
 
 a) script01.sh, does a scraping to metereoligical data, creates a folder for each time scrapped
@@ -15,7 +25,8 @@ e) getData.cgi, call script03.sh and show the main.html file on the fly using ng
 
 f) uploadToGithub.sh, commit and push the changes of in the whole project to github in unnatendent way
 
-g) notification.sh, send a notification to the topic "idg1100-562963" about the forecast got of the metereoligical data scrapped of the some cities
+g) notification.sh, send a notification to the topic "idg1100-562963" about the forecast got of the
+metereoligical data scrapped of the some cities
 
 h) deploy.sh, install all files and configure nginx and systemd timer to emulate cronjobs
 
@@ -23,13 +34,55 @@ i) runJobs.sh, executes the scripts which need to be run by the systemd timer
 
 -----------
 
+Implemented optional features:
+
+Scraping script 
+- On even days also scrape data for Kristiansand. 
+- Also retrieve information about humidity for each city and add it as a seventh line in the information files. 
+
+Pages script 
+- Show temperature and forecasts of the past 2 days.
+
+Overview script 
+- Show the current temperature and forecast after the city name.
+
+Repo update script
+- The repo update script commits all the new and changed files to the local git repository.
+It also pushes the new commit to the centralized repository. The repo update script runs unattended when launched by cron.
+
+Nginx configuration file 
+- Instead of setting up nginx to read the generated overview page from the disk, set up nginx to generate the
+overview page on the fly using CGI via fcgiwrap
+
+Crontab entries 
+- Create a systemd timer unit (two files) instead of a crontab entry.
+
+Notification script
+- The notification script sends a notification with the current forecast via the ntfy.sh service.
+Whenever the script is run, it reads the latest scraped meteorological data and sends a notification
+via the ntfy.sh service with a summary of the latest forecasts for all cities. The notifications will
+be sent to a topic that starts with "idg1100-562963".
+
+Deployment script
+- The deployment script configures a blank installation of Raspberry Pi OS with all that is necessary
+for the project to work. The deployment script takes care of, among other things, fetching the git
+repository from GitHub, placing all scripts in the right directories, generating all directories
+needed for the script to work properly, copying the nginx configuration
+file for the website and enabling it, and setting up the crontab. 
+
+-----------
+
+Notes #1:
+
 To install,
 
 cd /opt/
 
 sudo git config --global user.email "Hannah-Sofie@live.no"
 
-sudo git config --global user.password "<THIS MUST NOT SHOW HERE>"
+sudo git config --global user.password "<token>"
+
+access token : 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
 
 sudo git clone https://github.com/Hannah-Sofie/weather.git
 
@@ -37,12 +90,25 @@ sudo bash weather/scripts/deploy.sh
 
 ------------
 
-Password is the Personal github token, the file /etc/nginx/sites-available/weather.conf  needs to be edited to write (lihne 3) the IP on the LAN example:
-listen   10.246.211.113:80;
+More notes #2: 
+
+The file /etc/nginx/sites-available/weather.conf needs to be edited to write (line 3) the IP, example:
+
+(Raspberry PI school IP, could also be 10.24.97.243)
+listen   10.24.99.191:80;
 
 or
 
-listen   192.168.0.18:80;
+(Raspberry PI home IP)
+listen   192.168.1.8:80;
+
+------------
+
+Notes #3
+
+All the path are configured as absolutes in order to don't modify the scripts
+
+Open a browser and write the http://<rasberry-pi ip>/cgi-bin/getData.cgi and it should work?
 
 
 
